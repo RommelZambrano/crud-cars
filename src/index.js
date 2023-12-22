@@ -26,8 +26,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(carsRoute);
 
-app.listen(3000, () => {
-  console.log("Server on port 3000");
+app.listen(8000, () => {
+  console.log("Server on port 8000");
 });
 
 export default app;
