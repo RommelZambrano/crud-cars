@@ -1,0 +1,99 @@
+<%- include("partials/_header") %>
+
+<style>
+  .table-custom {
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+  }
+
+  .table-custom thead tr {
+    background-color: #212529;
+  }
+
+  .table-custom tbody tr {
+    background-color: #2d3035;
+    border-radius: 0.75em;
+  }
+
+  .table-custom td,
+  .table-custom th {
+    border-top: none;
+  }
+
+  .btn-custom {
+    padding: 0.375rem 0.75rem;
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table table-custom">
+        <thead>
+          <tr>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Color</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (cars) { %> 
+            <% for(var i = 0; i < cars.length; i++) { %>
+              <tr>
+                <td><%= cars[i].placa %></td>
+                <td><%= cars[i].marca %></td>
+                <td><%= cars[i].modelo %></td>
+                <td><%= cars[i].color %></td>
+                <td class="d-flex gap-2">
+                  <a href="/update/<%= cars[i].placa %>" class="btn btn-sm btn-custom btn-info">
+                    Edit
+                  </a>
+                  <a href="/delete/<%= cars[i].placa %>" class="btn btn-sm btn-custom btn-danger">
+                    Delete
+                  </a>
+                </td>
+              </tr>
+            <% } %> 
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card bg-secondary text-white">
+        <div class="card-body">
+          <form action="/add" method="POST">
+            <input
+              type="text"
+              name="Placa"
+              placeholder="Placa"
+              class="form-control mb-2"
+              autofocus
+            />
+            <input
+              type="text"
+              name="Marca"
+              placeholder="Marca"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="Modelo"
+              placeholder="Modelo"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="Color"
+              placeholder="Color"
+              class="form-control mb-2"
+            />
+
+            <button type="submit" class="btn btn-info btn-block">Guardar Carro</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

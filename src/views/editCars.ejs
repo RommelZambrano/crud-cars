@@ -1,0 +1,70 @@
+<%- include("partials/_header") %>
+
+<style>
+  /* Estilos personalizados para el formulario */
+  .custom-card {
+    background-color: #343a40; /* Color de fondo oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+  .custom-card .form-control {
+    background-color: #495057; /* Fondo de los campos de texto */
+    border: 1px solid #6c757d; /* Borde de los campos de texto */
+    color: #fff; /* Color de texto para los campos */
+  }
+
+  .custom-card .form-control::placeholder {
+    color: #adb5bd; /* Color para el placeholder */
+  }
+
+  .custom-card .btn-primary {
+    width: 100%; /* Botón de ancho completo */
+    background-color: #007bff; /* Color de fondo para el botón */
+    border-color: #007bff; /* Color de borde para el botón */
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+      <div class="card custom-card">
+        <div class="card-body">
+          <form action="/update/<%= car.placa %>" method="POST">
+            <input
+              type="text"
+              name="placa"
+              value="<%= car.placa %>"
+              placeholder="Placa"
+              class="form-control mb-3"
+              autofocus
+            />
+            <input
+              type="text"
+              name="marca"
+              value="<%= car.marca %>"
+              placeholder="Marca"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              name="modelo"
+              value="<%= car.modelo %>"
+              placeholder="Modelo"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              name="color"
+              value="<%= car.color %>"
+              placeholder="Color"
+              class="form-control mb-3"
+            />
+
+            <button type="submit" class="btn btn-primary">Guardar Carro</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
